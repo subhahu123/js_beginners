@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Notes taking app
+    </title>
+    <style>
+        * {
+                text-align: center;
+          }
+        </style>
+</head>
+
+<body>
+    <h1>Notes Taking APP</h1>
+    <div>
+        <ul id="notes"></ul>
+    </div>
+    <input type="text" id="inotes" onenter="addnotes()" autofocus>
+    <button id="click" onclick="addnotes()">add notes</button>
+
+    <script>
+            const input = document.querySelector("input");
+                input.addEventListener("keypress", function(event) {
+                    if (event.keyCode === 13)
+                    document.querySelector("button").click();
+                });
+                document.addEventListener("mouseup", function(mouse) {
+                    console.log(mouse.clientX);
+                });
+               function addnotes() {
+                    const notes = document.querySelector("#notes");
+                    let inotes = document.querySelector("#inotes");
+                    const li = document.createElement("li");
+                    li.innerHTML = inotes.value;
+                    notes.append(li);
+                    inotes.value = "" ;
+                }
+        </script>
+
+</body>
+
+</html>
